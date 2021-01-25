@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<ControlDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>1.1.1</Version>
+  <IncludeInControlInfo>false</IncludeInControlInfo>
+  <SupportFiles />
+  <RuntimeRender>HugaoFileUploadRender.js</RuntimeRender>
+  <GxResources>HugaoFileUploadResources.xpz</GxResources>
+  <HeightPropertyName>Height</HeightPropertyName>
+  <WidthPropertyName>Width</WidthPropertyName>
+  <ResizeSupported>false</ResizeSupported>
+  <ObjClass>HugaoFileUpload</ObjClass>
+  <Description>HugaoFileUpload</Description>
+  <Id>f9e1424f-7fed-4796-952f-e0d8dbe3ff9f</Id>
+  <Name>HugaoFileUpload</Name>
+  <ShowMethod>show</ShowMethod>
+  <ReferencedFiles>
+    <File>HugaoFileUpload.css</File>
+  </ReferencedFiles>
+  <Constructor>
+    <Parameters />
+    <Name>HugaoFileUpload</Name>
+  </Constructor>
+  <PropertiesDefinition>HugaoFileUploadProperties.xml</PropertiesDefinition>
+  <DesignRender>HugaoFileUploadRender.xsl</DesignRender>
+  <ToolboxIcon>HugaoUploadFile.ico</ToolboxIcon>
+  <ControlType />
+  <Categories>
+    <Category>Hugao Controls</Category>
+  </Categories>
+  <Events>
+    <Event>OnSimpleUploadComplete</Event>
+  </Events>
+  <Actions>
+    <Action>
+      <Order>0</Order>
+      <ActionProperties>
+        <Property>
+          <Key>
+            <string>Name</string>
+          </Key>
+          <Value>
+            <string>HugaoUploadedFile</string>
+          </Value>
+        </Property>
+        <Property>
+          <Key>
+            <string>ATTCUSTOMTYPE</string>
+          </Key>
+          <Value>
+            <string>HugaoUploadedFile</string>
+          </Value>
+        </Property>
+      </ActionProperties>
+      <Data />
+      <ActionType>VarDeclaration</ActionType>
+    </Action>
+    <Action>
+      <Order>1</Order>
+      <ActionProperties>
+        <Property>
+          <Key>
+            <string>Name</string>
+          </Key>
+          <Value>
+            <string>HugaoUploadedFiles</string>
+          </Value>
+        </Property>
+        <Property>
+          <Key>
+            <string>ATTCUSTOMTYPE</string>
+          </Key>
+          <Value>
+            <string>HugaoUploadedFile</string>
+          </Value>
+        </Property>
+		<Property>
+          <Key>
+            <string>AttCollection</string>
+          </Key>
+          <Value>
+            <string>True</string>
+          </Value>
+        </Property>
+      </ActionProperties>
+      <Data />
+      <ActionType>VarDeclaration</ActionType>
+    </Action>
+    <Action>
+      <Order>4</Order>
+      <ActionProperties>
+        <Property>
+          <Key>
+            <string>UploadedFiles</string>
+          </Key>
+          <Value>
+            <string>&amp;HugaoUploadedFiles</string>
+          </Value>
+        </Property>
+      </ActionProperties>
+      <Data />
+      <ActionType>SetPropertyToControl</ActionType>
+    </Action>
+  </Actions>
+  <IsPublic>true</IsPublic>
+</ControlDefinition>

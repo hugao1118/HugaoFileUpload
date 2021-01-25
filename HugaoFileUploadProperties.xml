@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Content xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Object id="HugaoFileUpload">
+    <Group>
+      <Name>General</Name>
+      <Type>Main</Type>
+      <Childs>
+        <Group>
+          <Name>DataBinding</Name>
+          <Childs>
+            <Prop>
+              <Id>UploadedFiles</Id>
+              <Name>UploadedFiles</Name>
+              <Type>Custom</Type>
+              <CustomType>Artech.Genexus.Common.CustomTypes.ControlAttVarReference, Artech.Genexus.Common</CustomType>
+              <Metadata>
+                <Value name="FlagSetValueMethod">SetUploadedFiles</Value>
+                <Value name="FlagGetValueMethod">GetUploadedFiles</Value>
+                <Value name="FlagDataTypeFilter">HugaoUploadedFile</Value>
+              </Metadata>
+            </Prop>
+          </Childs>
+        </Group>
+      </Childs>
+    </Group>
+  </Object>
+</Content>
