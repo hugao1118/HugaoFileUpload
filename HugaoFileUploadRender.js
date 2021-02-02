@@ -82,7 +82,7 @@ function HugaoFileUpload()
 			let _continue = true;
 			let ext = gx.text.lower(fname.substring((fname.lastIndexOf(".")), fname.length));
 
-			if(_myThis.Extensions.length > 0 && !gx.text.indexOf(gx.text.lower(_myThis.Extensions), ext, 0)) _continue = false;
+			if(_myThis.Extensions.length > 0 && gx.text.indexOf(gx.text.lower(_myThis.Extensions), ext, 0) > 0) _continue = false;
 
 			if(_continue){
 				if(f.size <= this.MaxFileSize){
