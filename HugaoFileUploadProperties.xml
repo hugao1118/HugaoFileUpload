@@ -19,6 +19,19 @@
                 <Value name="FlagDataTypeFilter">HugaoUploadedFile</Value>
               </Metadata>
             </Prop>
+      			<Prop>
+      			  <Id>Extensions</Id>
+      			  <Name>Extensions</Name>
+      			  <Type>Text</Type>
+      			  <Default>*.*</Default>
+      			</Prop>
+      			<Prop>
+      				<Id>MaxFileSize</Id>
+      				<Name>MaxFileSize</Name>
+      				<Type>Integer</Type>
+      				<Default>134217728</Default>
+      				<Metadata />
+      			</Prop>
           </Childs>
         </Group>
       </Childs>
