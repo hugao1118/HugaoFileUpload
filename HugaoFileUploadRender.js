@@ -31,6 +31,7 @@ function HugaoFileUpload()
 	this.show = function(){
 		if(!this.IsPostback){
 			if (this.ValidateApisSupport()) {
+				if(this.Extensions === "*.*") this.Extensions = "";
 				let template = '<div id="' + this.ControlName + this.ControlId + '_MainContainer" class="HugaoFileUpload_DropZone">' + this.ReturnMessage('HFU_DropFile') + '</div>' +
 							   '<input style="display:none;" type="file" id="' + this.ControlName + this.ControlId + '_Input" multiple accept="' + this.GetAcceptFiles() + '"/>' +
 							   '<output id="' + this.ControlName + this.ControlId + '_UploadedList"></output>';
@@ -155,9 +156,6 @@ function HugaoFileUpload()
 						}
 					}
 				};
-				let formData = new FormData();
-				formData.append("UploadFile", gx.json.serializeJson(_theFile));
-				_xmlHttp.send(formData);
 			}else{
 				_xmlHttp.onreadystatechange = function(){
 					if (_xmlHttp.readyState === 4) {
@@ -170,8 +168,8 @@ function HugaoFileUpload()
 					    }
 					}
 				};
-				_xmlHttp.send("UploadFile=" + gx.json.serializeJson(_theFile));
 			}
+			_xmlHttp.send("UploadFile=" + gx.json.serializeJson(_theFile));
 		}else{
 			console.error("An error occurred, can't stabilized an XmlHttp Connection to the server");
 		}
