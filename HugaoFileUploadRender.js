@@ -152,10 +152,10 @@ function HugaoFileUpload()
 					if (_xmlHttp.readyState === 4) {
 						let gx_response = gx.json.evalJSON(_xmlHttp.responseText);
 					    if (_xmlHttp.status == 200) {
-							gx.dom.byId(_myThis.ControlName + _myThis.ControlId + '_UploadedList').innerHTML = '<ul>' + _theOutput.join('') + '</ul>';
-							let _theUploadedFile = gx.json.evalJSON(gx_response.message);
-							_myThis.UploadedFiles.push(_theUploadedFile);
-							_myThis.OnSimpleUploadComplete();
+								gx.dom.byId(_myThis.ControlName + _myThis.ControlId + '_UploadedList').innerHTML = '<ul>' + _theOutput.join('') + '</ul>';
+								let _theUploadedFile = gx.json.evalJSON(gx_response.message);
+								_myThis.UploadedFiles.push(_theUploadedFile);
+								_myThis.OnSimpleUploadComplete();
 					    }
 					}
 				};
