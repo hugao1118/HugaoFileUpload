@@ -162,7 +162,7 @@ function HugaoFileUpload()
 			}
 			_xmlHttp.send("UploadFile=" + gx.json.serializeJson(_theFile));
 		}else{
-			console.error("An error occurred, can't stabilized an XmlHttp Connection to the server");
+			console.error("An error occurred, can't stabilized XmlHttp Connection to the server");
 		}
 	}
 
