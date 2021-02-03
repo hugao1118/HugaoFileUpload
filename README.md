@@ -33,7 +33,7 @@ _¿Qué se necesita para modificar y agregar funcionalidades?_
 * Git
 ```
 
-### Instalación 🔧
+## Instalación 🔧
 
 _¿Cómo se instala en GeneXus para usarlo en la KB?_
 
@@ -43,3 +43,13 @@ _¿Cómo se instala en GeneXus para usarlo en la KB?_
 * Desde una consola de cmd ejecutar **<Ruta_Instalacion_GeneXus>\GeneXus.exe /install**
 * Abrir GeneXus y ya al tener un WebPanel abierto en la paleta de **Toolbox** bajo el grupo **Hugao Controls** encontrará el User Control
 
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (Creative Commons)
+
+## Expresiones de Gratitud 🎁
+
+* Comenta a otros sobre este proyecto 📢
+* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
+* Da las gracias públicamente 🤓.
+* etc.
