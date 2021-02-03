@@ -37,9 +37,9 @@ _¿Qué se necesita para modificar y agregar funcionalidades?_
 
 _¿Cómo se instala en GeneXus para usarlo en la KB?_
 
-```
+
 * Descargar o comprimir la carpeta con los archivos en .zip
 * Copiar el archivo comprimido a la ruta **<Ruta_Instalacion_GeneXus>\UserControls**
 * Desde una consola de cmd ejecutar **<Ruta_Instalacion_GeneXus>\GeneXus.exe /install**
 * Abrir GeneXus y ya al tener un WebPanel abierto en la paleta de **Toolbox** bajo el grupo **Hugao Controls** encontrará el User Control
-```
+
