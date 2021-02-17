@@ -129,6 +129,8 @@ function HugaoFileUpload()
 			let endpoint = 'auploadprocess';
 			if(gx.gen.isDotNet() && !gx.text.endsWith(endpoint, '.aspx')){
 				endpoint += '.aspx';
+			}else if(gx.gen.isJava()){
+				endpoint = (this.ParentObject.PackageName !== '') ? this.ParentObject.PackageName + '.' + endpoint : endpoint;
 			}
 
 			_xmlHttp.open('POST', endpoint, false);
