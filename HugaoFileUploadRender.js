@@ -89,6 +89,7 @@ function HugaoFileUpload()
 					let reader = new FileReader();
 					reader.onloadend = function () {
 						let b64 = reader.result.replace(/^data:.+;base64,/, '');
+						b64 = encodeURIComponent(b64);
 						_theFile.Base64File = b64;
 						_theOutput.push('<li><b>', fname, '</b> (', f.type || 'n/a', ') - ', f.size, ' bytes</li>');
 						_myThis.UploadFileToServer(_theFile);
