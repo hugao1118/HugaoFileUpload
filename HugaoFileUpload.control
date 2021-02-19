@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ControlDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Version>1.1.4</Version>
+  <Version>1.2.0</Version>
   <IncludeInControlInfo>false</IncludeInControlInfo>
   <SupportFiles />
   <RuntimeRender>HugaoFileUploadRender.js</RuntimeRender>
