@@ -32,6 +32,20 @@
       				<Default>134217728</Default>
       				<Metadata />
       			</Prop>
+            <Prop>
+      				<Id>MultipleUpload</Id>
+      				<Name>MultipleUpload</Name>
+      				<Type>Boolean</Type>
+      				<Default>True</Default>
+      				<Metadata />
+      			</Prop>
+            <Prop>
+      				<Id>MaxAllowedFiles</Id>
+      				<Name>MaxAllowedFiles</Name>
+      				<Type>Integer</Type>
+      				<Default>0</Default>
+      				<Metadata />
+      			</Prop>
           </Childs>
         </Group>
       </Childs>

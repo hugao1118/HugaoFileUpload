@@ -3,9 +3,10 @@ function HugaoFileUpload()
 	this.UploadedFiles;
 	this.Extensions;
 	this.MaxFileSize;
+	this.MultipleUpload;
+	this.MaxAllowedFiles;
 
 	var _myThis = this;
-	var _theOutput = [];
 
 	this.SetUploadedFiles = function(data){
 		this.UploadedFiles = data;
@@ -20,24 +21,35 @@ function HugaoFileUpload()
 	}
 
 	this.show = function(){
-		if(!this.IsPostback){
-			if (this.ValidateApisSupport()) {
-				if(this.Extensions === "*.*") this.Extensions = "";
-				let template = '<div id="' + this.ControlName + this.ControlId + '_MainContainer" class="HugaoFileUpload_DropZone">' + this.ReturnMessage('HFU_DropFile') + '</div>' +
-							   '<input style="display:none;" type="file" id="' + this.ControlName + this.ControlId + '_Input" multiple accept="' + this.GetAcceptFiles() + '"/>' +
-							   '<div class="HugaoFileUpload_OutputZone" id="' + this.ControlName + this.ControlId + '_UploadedList"></div>';
-				this.setHtml(template);
+		if(!_myThis.IsPostback){
+			if (_myThis.ValidateApisSupport()) {
+				if(_myThis.Extensions === "*.*") _myThis.Extensions = "";
+				let _m = _myThis.MultipleUpload === true ? 'multiple' : '';
+				let _id = _myThis.ControlName + _myThis.ControlId;
 
-				let dropZone = gx.dom.byId(this.ControlName + this.ControlId + '_MainContainer');
-				let inputZone = gx.dom.byId(this.ControlName + this.ControlId + '_Input');
-				dropZone.addEventListener('dragover', this.DragOverHandler, false);
-				dropZone.addEventListener('drop', this.DropHandler, false);
+				let template = '';
+				template += '<div id="{{control_id}}_MainContainer" class="HugaoFileUpload_DropZone">{{description}}</div>';
+				template += '<input style="display:none;" type="file" id="{{control_id}}_Input" {{multiple}} accept="{{acepted_files}}"/>';
+				template += '<div class="HugaoFileUpload_OutputZone" id="{{control_id}}_UploadedList"></div>';
+
+				template = template.replaceAll('{{control_id}}', _myThis.PurgeText(_id));
+				template = template.replaceAll('{{description}}', _myThis.PurgeText(_myThis.ReturnMessage('HFU_DropFile')));
+				template = template.replaceAll('{{multiple}}', _m);
+				template = template.replaceAll('{{acepted_files}}', _myThis.PurgeText(_myThis.GetAcceptFiles()));
+
+				_myThis.setHtml(template);
+
+				let dropZone = gx.dom.byId(_id + '_MainContainer');
+				let inputZone = gx.dom.byId(_id + '_Input');
+
+				dropZone.addEventListener('dragover', _myThis.DragOverHandler, false);
+				dropZone.addEventListener('drop', _myThis.DropHandler, false);
 				dropZone.addEventListener('click', function(){
 					document.querySelector('#' + _myThis.ControlName + _myThis.ControlId + '_Input').click();
 				}, false);
-				inputZone.addEventListener('change', this.InputHandler, false);
+				inputZone.addEventListener('change', _myThis.InputHandler, false);
 			} else {
-				let msg = this.ReturnMessage('HFU_NoSupported');
+				let msg = _myThis.ReturnMessage('HFU_NoSupported');
 				console.error(msg);
 				alert(msg);
 			}
@@ -73,8 +85,10 @@ function HugaoFileUpload()
 	}
 
 	this.ProcessFiles = function(files){
-
 		for (let i=0; i < files.length; i++) {
+
+			if(_myThis.UploadedFiles.length == _myThis.MaxAllowedFiles && _myThis.MaxAllowedFiles > 0)
+				break;
 
 			let f = files[i];
 			let fname = f.name; // escape(f.name);
@@ -148,6 +162,7 @@ function HugaoFileUpload()
 				document.querySelector('#' + file_internalid + '>div[hugao-gx-role="status"]').innerHTML = '<span style="color:red;">ERROR: ' + _myThis.ReturnMessage('HFU_ExtNotAllowed') + '</span>';
 			}
 		}
+
 	}
 
 	this.UploadFileToServer = function(_theFile){
@@ -256,5 +271,13 @@ function HugaoFileUpload()
 		} while (Math.round(Math.abs(bytes) * r) / r >= 1024 && u < units.length - 1);
 
 		return bytes.toFixed(1) + ' ' + units[u];
+	}
+
+	this.PurgeText = function(text){
+		let regEx = new RegExp("<script>", "ig");
+		text = text.replace(regEx, "");
+		regEx = new RegExp("javascript", "ig");
+		text = text.replace(regEx, "");
+		return text;
 	}
 }
